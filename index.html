@@ -13,8 +13,19 @@
     <img id="pic" data-alt-src="winter.jpg" src="cat.jpg" >
     <img id="pic2" data-alt-src="lasanga.jpg" src="sodacan.jpg" >
     <img id="pic3" src="mountin.jpg"  >
-    <img id="pic4" data-alt-src="airplane.jpg" src="architec.jpg" ><br><br>
-    <hr>
+
+    <div id="pic4">
+        <ul class="box">
+        <li id="t_01" class="active">	
+            <img src="airplane.jpg" class="image"/></li>
+        <li id="t_01"> <img src="architec.jpg" alt="" class="image"/></li>
+       <li id="t_01">    <img src="mountin.jpg" alt="" class="image"/></li>
+       <li id="t_01">    <img src="owl.jpg" alt="" class="image"/></li>
+        </ul>
+    
+    </div>
+
+     <br><br><br><br><br><br>
     <div class="slideshow-container">
 
         <div class="mySlides fade">
@@ -97,15 +108,9 @@
             }
             });
             
-            /* $("#pic3").on({
-                "mouseover" : function() {
-                    this.src = 'magical.jpg';
-                    $(this).fadeOut;
-            },
-                "mouseout" : function() {
-                    this.src='mountin.jpg';
-            } 
-            }); */
+            $("img").click(function () {
+                $('#pic4 li:first').insertAfter($('#pic4 li:last'));
+            });
 
             //fade out when not mouseover, otherwise focus
 
@@ -115,11 +120,27 @@
                 $(this).animate({opacity: 1.0}, 500);
             });
 
-            $("#pic4").hover(function() {
-                $(this.src='airplane.jpg').fadeOut({opacity: 0.2}, 500);
-            }, $("#pic4").hover(function() {
-                 $(this.src='architec.jpg').fadeIn({opacity: 1.0}, 500);
-            }));
+            /* $("#pic4").on({
+                "mousedown" : function() {
+                    this.src = 'architec.jpg';
+                   }
+            });
+            $("#pic4").on({
+                "mousedown" : function() {
+                    this.src = 'airplane.jpg';
+                   }
+            }); */
+
+            
+            $(".box li").click(function() {
+                if ($(this).is(':last-child')) {
+                    $(".box li:first-child").fadeIn("slow").nextAll("li").hide()
+                } else {
+                    $(this).next("li").fadeIn("slow").prevAll("li").hide();
+                }
+            })
+
+                
 
             /* $("#pic").hover(function(){
                 //$(this).fadeOut();

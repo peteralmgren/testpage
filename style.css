@@ -53,6 +53,33 @@ img {vertical-align: middle;}
   animation-duration: 1.5s;
 }
 
+ul
+{
+	height: 320px;
+	position: relative;
+	width: 320px;
+}
+
+ul li
+{
+	left: 0;
+	list-style: none;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+ul li
+{
+	display: none;
+}
+
+ul li.active
+{
+	display: block;
+}
+
+
 @-webkit-keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
